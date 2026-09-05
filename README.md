@@ -3,7 +3,8 @@
 ## Integrantes
 
 - Cristhian Palomino
-- [Nombre del compañero]
+- Anthony Huayta 
+- Marcelo Herrera
 
 ## Descripción
 
