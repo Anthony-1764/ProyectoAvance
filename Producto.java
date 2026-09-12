@@ -8,7 +8,7 @@ public class Producto {
         }
 
         public double calcularPrecioFinal() {
-            return precioBase; // Versión básica inicial
+            return precioBase * 0.90; // Descuento del 10%
             }
 
         public static void main(String[] args) {
