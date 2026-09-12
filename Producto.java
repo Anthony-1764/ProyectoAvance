@@ -8,7 +8,7 @@ public class Producto {
         }
 
         public double calcularPrecioFinal() {
-            return precioBase; // Versión básica inicial
+            return precioBase * 1.18; // Impuesto IGV (18%)
             }
 
         public static void main(String[] args) {
