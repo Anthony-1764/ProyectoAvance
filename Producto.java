@@ -8,8 +8,10 @@ public class Producto {
         }
 
         public double calcularPrecioFinal() {
-            return precioBase * 0.90; // Descuento del 10%
-            }
+// Conflicto 1 resuelto: se aplica descuento del 10% y luego IGV del 18%
+double conDescuento = precioBase * 0.90;
+return conDescuento * 1.18;
+}
 
         public static void main(String[] args) {
             Producto p = new Producto("Laptop", 1000.0);
