@@ -26,4 +26,9 @@ public class UserController {
     public ResponseEntity<Response> getUserInfoAndOrderHistory(){
         return ResponseEntity.ok(userService.getUserInfoAndOrderHistory());
     }
+
+    @GetMapping("/favorites")
+    public ResponseEntity<Response> getFavoriteProducts(){
+        return ResponseEntity.ok(userService.getFavoriteProducts());
+    }
 }
