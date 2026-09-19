@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @GetMapping("/favorites")
-    public ResponseEntity<Response> getFavoriteProducts(){
-        return ResponseEntity.ok(userService.getFavoriteProducts());
-    }
+    public ResponseEntity<Response> getUserFavorites(){
+        return ResponseEntity.ok(userService.getUserFavorites());
+    }   
 }
