@@ -26,9 +26,4 @@ public class UserController {
     public ResponseEntity<Response> getUserInfoAndOrderHistory(){
         return ResponseEntity.ok(userService.getUserInfoAndOrderHistory());
     }
-
-    @GetMapping("/email")
-    public ResponseEntity<Response> getUserEmail(){
-    return ResponseEntity.ok(userService.getUserEmail());
-    }
 }
