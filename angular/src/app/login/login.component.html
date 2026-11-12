@@ -1,18 +1,53 @@
-<div>
-    <h2>Login</h2>
-    <p class="message" *ngIf="message">{{message}}</p>
-    <form (ngSubmit)="handleSubmit()">
+<main class="login-page">
+  <section class="login-visual" aria-label="El Mesón del Desierto">
+    <img src="/images/meson-piscina-atardecer.png" alt="Piscina y campos del Mesón del Desierto al atardecer">
+    <div class="login-visual-overlay" aria-hidden="true"></div>
+    <div class="login-visual-copy">
+      <p>El Mesón del Desierto</p>
+      <h1>Un espacio para disfrutar los sabores de Ica</h1>
+    </div>
+  </section>
 
-        <label>Email: </label>
-        <input type="email" name="email" [(ngModel)]="formData.email">
+  <section class="login-panel" aria-labelledby="login-title">
+    <div class="login-heading">
+      <p class="login-eyebrow">Bienvenido</p>
+      <h2 id="login-title">Inicia sesión</h2>
+      <p>Accede a tu cuenta para continuar con tus pedidos.</p>
+    </div>
 
-        <label>Contraseña: </label>
-        <input type="password" name="password" [(ngModel)]="formData.password">
+    <p class="login-message" *ngIf="message" role="status">{{message}}</p>
 
-        <button type="submit">Login</button>
-        <p class="register-link">
-            No tienes una cuenta?
-            <a routerLink="/register">Registrate</a>
-        </p>
+    <form class="login-form" (ngSubmit)="handleSubmit()">
+      <div class="login-field">
+        <label for="login-email">Correo electrónico</label>
+        <input
+          id="login-email"
+          type="email"
+          name="email"
+          autocomplete="email"
+          placeholder="nombre@correo.com"
+          [(ngModel)]="formData.email"
+        >
+      </div>
+
+      <div class="login-field">
+        <label for="login-password">Contraseña</label>
+        <input
+          id="login-password"
+          type="password"
+          name="password"
+          autocomplete="current-password"
+          placeholder="Ingresa tu contraseña"
+          [(ngModel)]="formData.password"
+        >
+      </div>
+
+      <button class="login-submit" type="submit">Ingresar</button>
+
+      <p class="register-link">
+        ¿No tienes una cuenta?
+        <a routerLink="/register">Regístrate</a>
+      </p>
     </form>
-</div>
+  </section>
+</main>

@@ -1,23 +1,43 @@
-<div class="product-list">
-    <div *ngFor="let product of products" class="product-item">
-        <div (click)="goToProductDetailsPage(product.id)">
-            <img [src]="product.imageUrl" [alt]="product.name">
-            <h3>{{product.name}}</h3>
-            <p>{{product.description}}</p>
-            <span>{{product.price.toFixed(2) | currency}}</span>
-        </div>
+<div class="product-list" aria-label="Lista de productos">
+  <article *ngFor="let product of products" class="product-item">
+    <button
+      type="button"
+      class="product-visual"
+      (click)="goToProductDetailsPage(product.id)"
+      [attr.aria-label]="'Ver detalles de ' + product.name"
+    >
+      <img [src]="product.imageUrl" [alt]="product.name" loading="lazy">
+    </button>
+
+    <div class="product-info">
+      <h3>{{product.name}}</h3>
+      <p class="product-description">{{product.description}}</p>
+
+      <div class="product-footer">
+        <span class="product-price">{{product.price.toFixed(2) | currency}}</span>
 
         <ng-container *ngIf="inInCart(product); else addToCartBtn">
-            <div class="quantity-controls">
-                <button (click)="decrementItem(product)">-</button>
-                <span>{{getCartItem(product)?.quantity}}</span>
-                <button (click)="incrementItem(product)">+</button>
-            </div>
+          <div class="quantity-controls" aria-label="Cantidad en el carrito">
+            <button
+              type="button"
+              (click)="decrementItem(product)"
+              [attr.aria-label]="'Reducir cantidad de ' + product.name"
+            >−</button>
+            <span aria-live="polite">{{getCartItem(product)?.quantity}}</span>
+            <button
+              type="button"
+              (click)="incrementItem(product)"
+              [attr.aria-label]="'Aumentar cantidad de ' + product.name"
+            >+</button>
+          </div>
         </ng-container>
 
         <ng-template #addToCartBtn>
-            <button (click)="addToCart(product)">Añade al carrito</button>
+          <button type="button" class="cart-button" (click)="addToCart(product)">
+            Agregar al carrito
+          </button>
         </ng-template>
+      </div>
     </div>
+  </article>
 </div>
-
