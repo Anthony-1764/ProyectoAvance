@@ -8,7 +8,12 @@ export class CartService {
 
   constructor() {
     const savedCart = localStorage.getItem('cart');
-    this.cart = savedCart ? JSON.parse(savedCart) : [];
+    try {
+      const parsedCart = savedCart ? JSON.parse(savedCart) : [];
+      this.cart = Array.isArray(parsedCart) ? parsedCart : [];
+    } catch {
+      this.cart = [];
+    }
   }
 
   getCart() {
