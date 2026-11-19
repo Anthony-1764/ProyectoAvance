@@ -1,0 +1,44 @@
+name: Calidad del frontend
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  frontend:
+    name: Compilar y probar Angular
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: angular
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: angular/package-lock.json
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Compilar el frontend
+        run: npm run build -- --configuration production
+
+      - name: Ejecutar las pruebas del carrito
+        run: >-
+          npm test --
+          --watch=false
+          --browsers=ChromeHeadless
+          --ts-config=tsconfig.ci.json
+          --include=src/app/service/cart.service.spec.ts
