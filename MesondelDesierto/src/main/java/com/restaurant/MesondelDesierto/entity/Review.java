@@ -1,4 +1,4 @@
-﻿package com.restaurant.MesondelDesierto.entity;
+package com.restaurant.MesondelDesierto.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

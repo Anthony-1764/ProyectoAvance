@@ -1,4 +1,4 @@
-﻿package com.restaurant.MesondelDesierto.repository;
+package com.restaurant.MesondelDesierto.repository;
 
 import com.restaurant.MesondelDesierto.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;

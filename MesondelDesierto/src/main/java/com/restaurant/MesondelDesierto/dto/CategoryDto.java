@@ -1,4 +1,4 @@
-﻿package com.restaurant.MesondelDesierto.dto;
+package com.restaurant.MesondelDesierto.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
